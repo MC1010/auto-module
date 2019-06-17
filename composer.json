@@ -1,0 +1,26 @@
+{
+    "name": "mc1010/auto-module",
+    "description": "",
+    "type": "laravel-module",
+    "authors": [
+        {
+            "name": "Thomas Ralph",
+            "email": "tralph@websterbrothers.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Plugins\\Auto\\Providers\\AutoServiceProvider"
+            ],
+            "aliases": {
+                
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Plugins\\Auto\\": ""
+        }
+    }
+}
