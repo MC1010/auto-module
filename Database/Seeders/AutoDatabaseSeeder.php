@@ -4,6 +4,9 @@ namespace Plugins\Auto\Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use Plugins\Auto\Database\Seeders\SeedEventTypesTableSeeder;
+use Plugins\Auto\Database\Seeders\SeedVehiclesTableSeeder;
+use Plugins;
 
 class AutoDatabaseSeeder extends Seeder
 {
@@ -16,6 +19,7 @@ class AutoDatabaseSeeder extends Seeder
     {
         Model::unguard();
 
-        // $this->call("OthersTableSeeder");
+        $this->call(SeedEventTypesTableSeeder::class);
+        $this->call(SeedVehiclesTableSeeder::class);
     }
 }

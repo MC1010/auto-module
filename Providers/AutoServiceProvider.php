@@ -4,6 +4,9 @@ namespace Plugins\Auto\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
+use App\Tools\RelationshipHandler;
+use App\Entities\User;
+use Plugins\Auto\Entities\Vehicle;
 
 class AutoServiceProvider extends ServiceProvider
 {
@@ -19,6 +22,11 @@ class AutoServiceProvider extends ServiceProvider
         $this->registerViews();
         $this->registerFactories();
         $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
+        
+        $relationshipHandler = resolve(RelationshipHandler::class);
+        $relationshipHandler->registerRelationship(User::class, 'vehicles', function($object) {
+            return $object->hasMany(Vehicle::class);
+        });
     }
 
     /**
